@@ -1,0 +1,27 @@
+class Solution {
+    public int firstUniqChar(String s) 
+    {
+        Map<Character, Integer> h_map= new HashMap<>();
+        for (int i=0;i<s.length();i++) 
+        {
+            char x=s.charAt(i);
+            Integer c= h_map.get(x);
+            if (c == null) 
+            {
+                h_map.put(x, 1);
+            } 
+            else 
+            {
+                h_map.put(x,++c);
+            }
+        }
+        for (int i = 0; i< s.length(); i++) 
+        {
+            if (h_map.get(s.charAt(i)) == 1) 
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
