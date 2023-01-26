@@ -1,0 +1,29 @@
+class Solution {
+    public boolean isAnagram(String s, String t) 
+    {
+        HashMap<Character,Integer> dict_s=new HashMap<Character,Integer>();
+        HashMap<Character,Integer> dict_t=new HashMap<Character,Integer>();
+        for(int i=0;i<s.length();i++)
+        {
+            char temp=s.charAt(i);
+            if(dict_s.containsKey(temp)){
+                dict_s.put(temp,dict_s.get(temp)+1);
+            }
+            else{
+                dict_s.put(temp,1);
+            }
+        }
+        for(int i=0;i<t.length();i++)
+        {
+            char temp=t.charAt(i);
+            if(dict_t.containsKey(temp)){
+                dict_t.put(temp,dict_t.get(temp)+1);
+            }
+            else{
+                dict_t.put(temp,1);
+            }
+        }    
+        if(dict_s.equals(dict_t))return true;
+        else return false;    
+    }
+}
